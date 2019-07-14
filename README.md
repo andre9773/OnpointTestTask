@@ -1,2 +1,2 @@
 # OnpointTestTask
-Horizontal Section Scrolling
+Vertical Section Scrolling
