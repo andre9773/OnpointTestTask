@@ -10,13 +10,11 @@ const sass = require('gulp-sass');
 
 const cssFiles = [
 	//'./node_modules/normalize.css/normalize.css',
-	'./src/css/some.css',
-	'./src/css/other.css',
-	'./src/css/test.css'
+	'./src/css/style.css',
+	'./src/css/firstSection.css'
 ];
 const jsFile = [
-	'./src/js/lib.js',
-	'./src/js/some.js'
+	'./src/js/script.js'
 ];
 const plugins = [
     //autoprefixer({browsers: ['last 2 version']}),
@@ -25,21 +23,27 @@ const plugins = [
 
 function css() {
     return gulp.src(cssFiles)
-    			//.pipe(concat('all.css'))
+    			
         		.pipe(postcss(plugins))
-        		.pipe(gulp.dest('./build/css'))
-        		.pipe(browserSync.stream());
+        		.pipe(gulp.dest('./build/css'));
+        		//.pipe(browserSync.stream());
+}
+function styles() {
+    return gulp.src(cssFiles)
+    			.pipe(concat('all.css'))
+        		.pipe(gulp.dest('./build/css'));
+        		//.pipe(browserSync.stream());
 }
 
 
 function scripts() {
 	return gulp.src(jsFile)
 				.pipe(concat('all.js'))
-				.pipe(uglify({
-					toplevel: true
-				}))
-				.pipe(gulp.dest('./build/js'))
-				.pipe(browserSync.stream());
+				//.pipe(uglify({
+				//	toplevel: true
+				//}))
+				.pipe(gulp.dest('./build/js'));
+				//.pipe(browserSync.stream());
 }
 
 function sassCss() {
@@ -53,24 +57,24 @@ function clean() {
 }
 
 function watch() {
-	browserSync.init({
-        server: {
-            baseDir: "./"
-        },
-        tunnel: true
-    });
-	gulp.watch('./src/css/**/*.css', css);
+//	browserSync.init({
+ //       server: {
+ //           baseDir: "./"
+ //       },
+//        tunnel: true
+//    });
+	gulp.watch('./src/css/**/*.css', styles);
 	gulp.watch('./src/js/**/*.js', scripts);
 	gulp.watch('./src/css/**/*.sass', sassCss);
-	gulp.watch('./*.html', browserSync.reload);
+	//gulp.watch('./*.html', browserSync.reload);
 }
 
-gulp.task('css', css);
+gulp.task('styles', styles);
 gulp.task('scripts', scripts);
 gulp.task('watch', watch);
 gulp.task('clean', clean);
 gulp.task('build', gulp.series(clean,
-					gulp.parallel(css, scripts)
+					gulp.parallel(styles, scripts)
 					));
 
 gulp.task('dev', gulp.series('build', 'watch'));

@@ -3,6 +3,7 @@
   <head>
   	<meta charset="UTF-8">
     <title>OnpointTestTask</title>
+    <link rel="stylesheet" href="build/css/all.css">
   </head>
   <body>
 
@@ -16,10 +17,9 @@
 	<title>Document</title>
 </head>
 <body >
-<div class="page" >
 	<div class="pagination-wrapper">
     	<div class="pagination">
-      		<div class="pagination__dot"></div>
+      		<div class="pagination__dot pagination__dot-active"></div>
       		<div class="pagination__dot"></div>
       		<div class="pagination__dot"></div>
     	</div>
@@ -28,25 +28,32 @@
 		<div class="next__text">Листай вниз</div>
 		<div class="next__strelka"></div>
 		<div class="next__fon"></div>
+		
 	</div>
-	<div class="section">
+<div class="page" id="page">
+	
+	<div class="section section-fon1">
 		<div class="wrap">
-			<h2 class="title">Всегда ли цели терапии СД2 на поверхности?</h2>
-			<div class="target">
-				<div class="target__pulse"></div>
-				<div class="targrt__text">Цель по HbA1c</div>
+			<div class="header"><h2 class="title">Всегда ли цели терапии СД2 на поверхности?</h2></div>
+			<div class="target target-first">
+				<div class="pulse-border-first">
+				<div class="target__pulse target__pulse-first"></div></div>
+				<div class="target__text target__text-first">Цель по HbA1c</div>
 			</div>
-			<div class="target">
-				<div class="target__pulse"></div>
-				<div class="targrt__text">Гипогликемия</div>
+			<div class="target target-second">
+				<div class="pulse-border-second">
+				<div class="target__pulse target__pulse-second"></div></div>
+				<div class="target__text target__text-second">Гипогликемия</div>
 			</div>
-			<div class="target">
-				<div class="target__pulse"></div>
-				<div class="targrt__text">СС риски</div>
+			<div class="target target-third">
+				<div class="pulse-border-third">
+				<div class="target__pulse target__pulse-third"></div></div>
+				<div class="target__text target__text-third">СС риски</div>
 			</div>
-			<div class="target">
-				<div class="target__pulse"></div>
-				<div class="targrt__text">Осложнения СД</div>
+			<div class="target target-fourth">
+				<div class="pulse-border-fourth">
+				<div class="target__pulse target__pulse-fourth"></div></div>
+				<div class="target__text target__text-fourth">Осложнения СД</div>
 			</div>
 		</div>
 	</div>
@@ -55,6 +62,8 @@
 
 	<div class="section">two <span class="top">&uarr;</span></div>
 	<div class="section">three <span class="top">&uarr;</span></div>
+
 </div>
 </body>
+<script src="build/js/all.js"></script>
 </html>
